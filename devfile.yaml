@@ -82,7 +82,7 @@ commands:
     actions:
       - type: exec
         command: |-
-                  oc start-build getting-started --from-dir=.
+                  oc start-build getting-started --from-dir=/projects/quarkus-quickstarts/getting-started/
                   oc logs -f bc/getting-started
         component: vscode-openshift
         workdir: /projects/quarkus-quickstarts/getting-started/
