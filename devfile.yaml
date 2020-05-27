@@ -98,3 +98,11 @@ commands:
                   echo getting-started url http://$(oc get route getting-started --template='{{ .spec.host }}')
         component: vscode-openshift
         workdir: /projects/quarkus-quickstarts/getting-started/
+  - name: oc - delete quarkus-app
+    actions:
+      - type: exec
+        command: |-
+                  oc delete all --selector=app=getting-started
+                  oc get all --selector=app=getting-started
+        component: vscode-openshift
+        workdir: /projects/quarkus-quickstarts/getting-started/
