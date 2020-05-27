@@ -5,6 +5,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
@@ -14,6 +15,8 @@ public class GreetingResource {
     @Inject
     GreetingService service;
 
+    String[] response = {"hello", "world"};
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/greeting/{name}")
@@ -22,8 +25,8 @@ public class GreetingResource {
     }
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
-        return "hello";
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response hello() {
+        return Response.ok().entity(response).build();
     }
 }
