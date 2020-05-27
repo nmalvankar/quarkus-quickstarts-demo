@@ -78,14 +78,14 @@ commands:
                   rm oc; curl https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/linux/oc.tar.gz -s | tar zxv && ./oc login --server=${KUBERNETES_SERVICE_HOST}:443
         component: vscode-openshift
         workdir: /tmp
-  - name: oc - deploy quarkus-app (from local sources)
+  - name: oc - redeploy quarkus-app (from local sources)
     actions:
       - type: exec
         command: |-
                   oc start-build getting-started --from-dir=.
                   oc logs -f bc/getting-started
         component: vscode-openshift
-        workdir: /projects/quarkus-quickstarts-demo/getting-started/
+        workdir: /projects/quarkus-quickstarts/getting-started/
   - name: oc - deploy Quarkus app from github
     actions:
       - type: exec
@@ -97,4 +97,4 @@ commands:
                   oc logs -f bc/getting-started
                   echo getting-started url http://$(oc get route getting-started --template='{{ .spec.host }}')
         component: vscode-openshift
-        workdir: /projects/quarkus-quickstarts-demo/getting-started/
+        workdir: /projects/quarkus-quickstarts/getting-started/
