@@ -79,4 +79,4 @@ After getting a cup of coffee, you'll be able to run this executable directly:
 > ./target/getting-started-1.0-SNAPSHOT-runner
 
 ### Run this application on Red Hat CodeReady Workspaces
-[![Start Coding & Contribute](factory-contribute.svg)](https://codeready-codeready-workspaces.apps.cluster-toronto-5c0f.toronto-5c0f.example.opentlc.com/factory?url=https://github.com/nmalvankar/quarkus-quickstarts-demo)
+[![Start Coding & Contribute](factory-contribute.svg)](https://codeready-codeready-workspaces.apps.cluster-toronto-5c0f.toronto-5c0f.example.opentlc.com/factory?url=https://github.com/nmalvankar/quarkus-quickstarts-demo.git#1.4.2)
