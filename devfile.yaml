@@ -98,11 +98,31 @@ commands:
                   echo getting-started url http://$(oc get route getting-started --template='{{ .spec.host }}')
         component: vscode-openshift
         workdir: /projects/quarkus-quickstarts/getting-started/
-  - name: oc - delete quarkus-app
+    - name: oc - deploy Quarkus native app from github
+    actions:
+      - type: exec
+        command: |-
+                  # s2i quarkus app from source
+                  oc new-app quay.io/quarkus/ubi-quarkus-native-s2i:19.3.1-java11~https://github.com/nmalvankar/quarkus-quickstarts-demo --context-dir=getting-started --name=getting-started-native
+                  oc expose svc/getting-started-native
+                  # check logs
+                  oc logs -f bc/getting-started-native
+                  echo getting-started url http://$(oc get route getting-started-native --template='{{ .spec.host }}')
+        component: vscode-openshift
+        workdir: /projects/quarkus-quickstarts/getting-started/
+  - name: oc - delete quarkus app
     actions:
       - type: exec
         command: |-
                   oc delete all --selector=app=getting-started
                   oc get all --selector=app=getting-started
+        component: vscode-openshift
+        workdir: /projects/quarkus-quickstarts/getting-started/
+  - name: oc - delete quarkus native app
+    actions:
+      - type: exec
+        command: |-
+                  oc delete all --selector=app=getting-started-native
+                  oc get all --selector=app=getting-started-native
         component: vscode-openshift
         workdir: /projects/quarkus-quickstarts/getting-started/
