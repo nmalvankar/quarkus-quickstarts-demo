@@ -98,7 +98,7 @@ commands:
                   echo getting-started url http://$(oc get route getting-started --template='{{ .spec.host }}')
         component: vscode-openshift
         workdir: /projects/quarkus-quickstarts/getting-started/
-    - name: oc - deploy Quarkus native app from github
+  - name: oc - deploy Quarkus native app from github
     actions:
       - type: exec
         command: |-
