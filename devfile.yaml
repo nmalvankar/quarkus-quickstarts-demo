@@ -91,7 +91,7 @@ commands:
       - type: exec
         command: |-
                   # s2i quarkus app from source
-                  oc new-app java~https://github.com/nmalvankar/quarkus-quickstarts-demo --name=getting-started --context-dir=getting-started --env=JAVA_OPTIONS="-Dquarkus.http.host=0.0.0.0"
+                  oc new-app java~https://github.com/nmalvankar/quarkus-quickstarts-demo.git#1.4.2 --name=getting-started --context-dir=getting-started --env=JAVA_OPTIONS="-Dquarkus.http.host=0.0.0.0"
                   oc expose svc/getting-started
                   # check logs
                   oc logs -f bc/getting-started
@@ -103,7 +103,7 @@ commands:
       - type: exec
         command: |-
                   # s2i quarkus app from source
-                  oc new-app quay.io/quarkus/ubi-quarkus-native-s2i:19.3.1-java11~https://github.com/nmalvankar/quarkus-quickstarts-demo --context-dir=getting-started --name=getting-started-native
+                  oc new-app quay.io/quarkus/ubi-quarkus-native-s2i:19.3.1-java11~https://github.com/nmalvankar/quarkus-quickstarts-demo.git#1.4.2 --context-dir=getting-started --name=getting-started-native
                   oc expose svc/getting-started-native
                   # check logs
                   oc logs -f bc/getting-started-native
