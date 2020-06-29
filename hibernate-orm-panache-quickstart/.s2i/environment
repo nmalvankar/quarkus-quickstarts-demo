@@ -1,4 +1,4 @@
 MAVEN_S2I_ARTIFACT_DIRS=target
 S2I_SOURCE_DEPLOYMENTS_FILTER=*-runner.jar lib
-JAVA_OPTIONS=-Dquarkus.http.host=0.0.0.0 -Dquarkus.datasource.jdbc.url=jdbc:postgresql://quarkus-db/quarkus_db
+JAVA_OPTIONS=-Dquarkus.http.host=0.0.0.0 -Dquarkus.datasource.jdbc.url=jdbc:postgresql://quarkus-db/quarkus_test
 AB_JOLOKIA_OFF=true
