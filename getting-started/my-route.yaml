@@ -1,6 +1,6 @@
 kind: List
 items: 
-- kind: Route
+- kind: Ingress
   apiVersion: route.openshift.io/v1
   metadata:
     name: my-route
