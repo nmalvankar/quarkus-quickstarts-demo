@@ -29,5 +29,5 @@ items:
     port:
       targetPort: quarkus-http
     tls:
-      termination: passthrough
+      termination: reencrypt
     wildcardPolicy: None
