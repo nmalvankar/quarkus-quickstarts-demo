@@ -1,0 +1,33 @@
+---
+kind: Template
+apiVersion: v1
+metadata:
+  name: quarkus-app
+objects:
+-
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: quarkus
+    labels:
+      name: quarkus
+  spec:
+    type: LoadBalancer
+    ports:
+      - name: quarkushttp
+        port: 8443
+        targetPort: 8443
+        protocol: TCP
+-
+  apiVersion: v1
+  kind: Route
+  metadata:
+    name: quarkus
+  spec:
+    to:
+      kind: Service
+      name: quarkus
+    port:
+      targetPort: quarkushttp
+    tls:
+      termination: passthrough    
