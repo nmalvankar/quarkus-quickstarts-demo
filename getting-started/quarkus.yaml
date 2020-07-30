@@ -1,0 +1,33 @@
+kind: List
+items:
+ -
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: quarkusdev
+    labels:
+      name: quarkus
+  spec:
+    type: LoadBalancer
+    ports:
+      - name: quarkus-http
+        protocol: TCP
+        port: 8443
+        targetPort: 8443
+ -
+  kind: Route
+  apiVersion: v1
+  metadata:
+    name: quarkusdev
+    annotations:
+      testannotation: maven
+  spec:
+    to:
+      kind: Service
+      name: quarkusdev
+      weight: 100
+    port:
+      targetPort: quarkus-http
+    tls:
+      termination: passthrough
+    wildcardPolicy: None
