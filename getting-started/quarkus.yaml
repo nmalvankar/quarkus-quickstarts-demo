@@ -1,0 +1,30 @@
+kind: List
+items:
+ -
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: quarkusdev
+  spec:
+    ports:
+      - name: http
+        protocol: TCP
+        port: 8443
+        targetPort: 8443
+ -
+  kind: Route
+  apiVersion: route.openshift.io/v1
+  metadata:
+    name: quarkusdev
+    annotations:
+      testannotation: maven
+  spec:
+    to:
+      kind: Service
+      name: quarkusdev
+      weight: 100
+    port:
+      targetPort: 8443
+    tls:
+      termination: passthrough
+    wildcardPolicy: None
