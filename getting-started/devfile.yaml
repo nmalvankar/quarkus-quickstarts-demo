@@ -25,7 +25,7 @@ components:
         containerPath: /home/jboss/.m2
     alias: maven
     image: >-
-      registry.redhat.io/codeready-workspaces/plugin-java11-rhel8@sha256:38e363ba28941e6ef688d511c388324d0f83f7a1fac3eb65e09aa50858f0ae84
+      registry.redhat.io/codeready-workspaces/plugin-java11-rhel8:2.2-9
     env:
       - value: >-
           -XX:MaxRAMPercentage=50.0 -XX:+UseParallelGC -XX:MinHeapFreeRatio=10
