@@ -6,6 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 public class GreetingService {
 
     public String greeting(String name) {
+        //Comment for testing git commit
         return "hello " + name;
     }
 
